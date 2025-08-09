@@ -1,0 +1,45 @@
+appName: sample-backend
+
+deployment:
+  replicas: 1
+
+service:
+  name: backend
+  port: 5000
+
+image:
+  repository: sonld203/sample_flask_app
+  tags: ""
+  pullPolicy: IfNotPresent
+
+resources:
+  requests:
+    memory: "512Mi"
+    cpu: "500m"
+  limits:
+    memory: "1024Mi"
+    cpu: "1"
+  
+db_vol:
+  claimName: database-pvc
+  pv_size: 512Mi
+  pvc_size: 400Mi
+
+ingress:
+  enabled: true
+  name: backend
+  hosts:
+    - host: "myapp.local"
+      paths:
+        - path: "/"
+          pathType: Prefix
+          service:
+            name: "backend"
+            port: 5000
+
+
+
+
+
+
+

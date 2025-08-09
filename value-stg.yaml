@@ -1,0 +1,19 @@
+deployment:
+  replicas: 1
+
+image:
+  repository: sonld203/sample_flask_app_staging
+  tags: "latest"
+
+ingress:
+  enabled: true
+  name: backend
+  hosts:
+    - host: "myapp_staging.local"
+      paths:
+        - path: "/"
+          pathType: Prefix
+          service:
+            name: "backend"
+            port: 5000
+
