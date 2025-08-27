@@ -32,14 +32,14 @@ spec:
               value: {{ .Values.postgresql.auth.username | default "postgres" | quote }}
             - name: DB_PASSWORD
               value: {{ .Values.postgresql.auth.password | default "postgres" | quote }}
-          {{- with .Values.resources }}
-          resources:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
-          volumeMounts:
-            - name: {{ .Values.db_vol.claimName }}
-              mountPath: /data
-      volumes:
-        - name: {{ .Values.db_vol.claimName }}
-          persistentVolumeClaim:
-            claimName: {{ .Values.db_vol.claimName }}
+      #     {{- with .Values.resources }}
+      #     resources:
+      #       {{- toYaml . | nindent 12 }}
+      #     {{- end }}
+      #     volumeMounts:
+      #       - name: {{ .Values.db_vol.claimName }}
+      #         mountPath: /data
+      # volumes:
+      #   - name: {{ .Values.db_vol.claimName }}
+      #     persistentVolumeClaim:
+      #       claimName: {{ .Values.db_vol.claimName }}
