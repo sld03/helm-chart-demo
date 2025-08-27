@@ -21,6 +21,17 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy | default "IfNotPresent" }}
           ports:
             - containerPort: 5000
+          env:
+            - name: DB_HOST
+              value: {{ .Values.postgresql.host }}
+            - name: DB_PORT
+              value: {{ .Values.postgresql.port }}
+            - name: DB_NAME
+              value: {{ .Values.postgresql.auth.database }}
+            - name: DB_USER
+              value: {{ .Values.postgresql.auth.username | default "postgres" | quote }}
+            - name: DB_PASSWORD
+              value: {{ .Values.postgresql.auth.password | default "postgres" | quote }}
           {{- with .Values.resources }}
           resources:
             {{- toYaml . | nindent 12 }}

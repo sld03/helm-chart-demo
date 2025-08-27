@@ -18,6 +18,8 @@ ingress:
             port: 5000
 
 postgresql:
+  host: myapp-helm-postgresql.myapp.svc.cluster.local
+  port: 5432
   auth:
     username: admin
     password: sonlduet
