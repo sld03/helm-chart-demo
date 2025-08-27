@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .Values.db_vol.claimName }}
+  labels:
+    {{ include "mychart.labels" . | nindent 4 }}
+spec:
+  capacity:
+    storage: {{.Values.db_vol.size | default "0.5Gi"}}
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /mnt/data
+    type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Values.db_vol.claimName }}
+  labels:
+    {{ include "mychart.labels" . | nindent 4 }}
+spec:
+  resources:
+    requests:
+      storage: {{.Values.db_vol.pvc_size | default "0.4Gi"}}
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
