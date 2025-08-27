@@ -1,5 +1,5 @@
 deployment:
-  replicas: 2
+  replicas: 1
 
 image:
   repository: sonld203/sample_flask_app_dev
