@@ -10,7 +10,7 @@ service:
 image:
   repository: sonld203/sample_flask_app
   tags: ""
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 resources:
   requests:
