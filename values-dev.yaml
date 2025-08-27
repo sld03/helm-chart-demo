@@ -17,6 +17,11 @@ ingress:
             name: "backend"
             port: 5000
 
+postgresql:
+  auth:
+    username: admin
+    password: sonlduet
+    database: db-dev
 
 
 

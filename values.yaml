@@ -38,6 +38,14 @@ ingress:
             port: 5000
 
 
+postgresql:
+  enabled: true
+  primary:
+    persistence:
+      enabled: true
+      storageClass: "standard"
+      size: 2Gi
+
 
 
 
