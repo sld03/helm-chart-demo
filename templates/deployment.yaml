@@ -23,9 +23,9 @@ spec:
             - containerPort: 5000
           env:
             - name: DB_HOST
-              value: {{ .Values.postgresql.host }}
+              value: "myapp-helm-postgresql.myapp.svc.cluster.local"
             - name: DB_PORT
-              value: {{ .Values.postgresql.port }}
+              value: "5432"
             - name: DB_NAME
               value: {{ .Values.postgresql.auth.database }}
             - name: DB_USER
