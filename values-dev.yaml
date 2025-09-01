@@ -23,13 +23,13 @@ postgresql:
     password: sonlduet
     database: db-dev
 
-kafka:
-  server: 
-  user-topic: user
-  consumer-group-id: backend-dev
-  sasl:
-    username: app-user
-    password: password1
+# kafka:
+#   server: 
+#   user-topic: user
+#   consumer-group-id: backend-dev
+#   sasl:
+#     username: app-user
+#     password: password1
 
 
 

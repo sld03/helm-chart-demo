@@ -32,13 +32,13 @@ spec:
               value: {{ .Values.postgresql.auth.username | default "postgres" | quote }}
             - name: DB_PASSWORD
               value: {{ .Values.postgresql.auth.password | default "postgres" | quote }}
-            - name: KAFKA_BOOTSTRAP_SERVERS
-              value: {{ .Values.kafka.server | default "kafka:9092" | quote }}
-            - name: KAFKA_TOPIC_USER_EVENTS
-              value: {{ .Values.kafka.user-topic | default "user" | quote }}
-            - name: KAFKA_GROUP_ID
-              value: {{ .Values.kafka.consumer-group-id | default "backend-group" | quote }}
-            - name: KAFKA_SASL_USERNAME
-              value: {{ .Values.kafka.sasl.username | default "app-user" | quote }}
-            - name: KAFKA_SASL_PASSWORD
-              value: {{ .Values.kafka.sasl.password | default "password1" | quote }}
+            # - name: KAFKA_BOOTSTRAP_SERVERS
+            #   value: {{ .Values.kafka.server | default "kafka:9092" | quote }}
+            # - name: KAFKA_TOPIC_USER_EVENTS
+            #   value: {{ .Values.kafka.user-topic | default "user" | quote }}
+            # - name: KAFKA_GROUP_ID
+            #   value: {{ .Values.kafka.consumer-group-id | default "backend-group" | quote }}
+            # - name: KAFKA_SASL_USERNAME
+            #   value: {{ .Values.kafka.sasl.username | default "app-user" | quote }}
+            # - name: KAFKA_SASL_PASSWORD
+            #   value: {{ .Values.kafka.sasl.password | default "password1" | quote }}
