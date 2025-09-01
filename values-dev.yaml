@@ -2,7 +2,7 @@ deployment:
   replicas: 1
 
 image:
-  repository: sonld203/sample_flask_app_dev
+  repository: 192.168.122.43:5001/sample_flask_app_dev
   tags: latest
 
 ingress:
@@ -22,6 +22,14 @@ postgresql:
     username: admin
     password: sonlduet
     database: db-dev
+
+kafka:
+  server: 
+  user-topic: user
+  consumer-group-id: backend-dev
+  sasl:
+    username: app-user
+    password: password1
 
 
 
