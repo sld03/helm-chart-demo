@@ -1,5 +1,8 @@
 appName: sample-backend
 
+# Application Environment
+environment: development
+
 deployment:
   replicas: 1
 
@@ -37,9 +40,12 @@ ingress:
             name: "backend"
             port: 5000
 
-
 postgresql:
   enabled: true
+  auth:
+    username: postgres
+    password: postgres
+    database: myapp
   primary:
     persistence:
       enabled: true

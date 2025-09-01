@@ -23,22 +23,16 @@ spec:
             - containerPort: 5000
           env:
             - name: DB_HOST
-              value: "myapp-helm-postgresql.myapp.svc.cluster.local"
+              value: {{ printf "%s-postgresql.%s.svc.cluster.local" (include "mychart.fullname" .) .Release.Namespace | quote }}
             - name: DB_PORT
               value: "5432"
             - name: DB_NAME
-              value: {{ .Values.postgresql.auth.database }}
+              value: {{ .Values.postgresql.auth.database | default "postgres" | quote }}
             - name: DB_USER
               value: {{ .Values.postgresql.auth.username | default "postgres" | quote }}
             - name: DB_PASSWORD
               value: {{ .Values.postgresql.auth.password | default "postgres" | quote }}
-            # - name: KAFKA_BOOTSTRAP_SERVERS
-            #   value: {{ .Values.kafka.server | default "kafka:9092" | quote }}
-            # - name: KAFKA_TOPIC_USER_EVENTS
-            #   value: {{ .Values.kafka.user-topic | default "user" | quote }}
-            # - name: KAFKA_GROUP_ID
-            #   value: {{ .Values.kafka.consumer-group-id | default "backend-group" | quote }}
-            # - name: KAFKA_SASL_USERNAME
-            #   value: {{ .Values.kafka.sasl.username | default "app-user" | quote }}
-            # - name: KAFKA_SASL_PASSWORD
-            #   value: {{ .Values.kafka.sasl.password | default "password1" | quote }}
+            - name: APP_PORT
+              value: {{ .Values.service.port | default "5000" | quote }}
+            - name: APP_ENV
+              value: {{ .Values.environment | default "development" | quote }}

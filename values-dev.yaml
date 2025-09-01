@@ -1,3 +1,5 @@
+environment: development
+
 deployment:
   replicas: 1
 
@@ -22,14 +24,6 @@ postgresql:
     username: admin
     password: sonlduet
     database: db-dev
-
-# kafka:
-#   server: 
-#   user-topic: user
-#   consumer-group-id: backend-dev
-#   sasl:
-#     username: app-user
-#     password: password1
 
 
 
