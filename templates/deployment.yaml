@@ -23,7 +23,7 @@ spec:
             - containerPort: 5000
           env:
             - name: DB_HOST
-              value: {{ printf "%s-postgresql.%s.svc.cluster.local" (include "mychart.fullname" .) .Release.Namespace | quote }}
+              value: {{ .Values.db_host | default "myapp-helm-postgresql.myapp.svc.cluster.local" | quote }}
             - name: DB_PORT
               value: "5432"
             - name: DB_NAME
