@@ -2,7 +2,7 @@ deployment:
   replicas: 1
 
 image:
-  repository: 192.168.122.43:5001/sample_flask_app_dev
+  repository: 192.168.122.1:5000/sample_flask_app_dev
   tags: latest
 
 ingress:
