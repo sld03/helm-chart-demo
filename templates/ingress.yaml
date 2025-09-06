@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: {{ include "mychart.fullname" . }}
   labels:
-    {{- include "mychart.labels" . | nindent 4 }}
+    {{- include "mychart.labels" . | nindent 4 }} 
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
